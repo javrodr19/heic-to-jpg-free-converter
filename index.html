@@ -332,5 +332,26 @@
             output.appendChild(div);
         }
     </script>
+    <div id="cookieConsent" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e1e1e; padding: 20px; border-top: 1px solid #333; display: none; align-items: center; justify-content: center; flex-wrap: wrap; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.5);">
+    <p style="margin: 0 20px 0 0; color: #e0e0e0; font-size: 0.9rem;">
+        We use cookies to personalize content and ads, and to analyze our traffic. By using our site, you agree to our use of cookies. 
+        <a href="privacy.html" style="color: #bb86fc;">Learn more</a>.
+    </p>
+    <button id="acceptCookies" style="background: #bb86fc; color: #000; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Accept</button>
+</div>
+
+<script>
+    // Logic for Cookie Banner
+    window.addEventListener('load', function() {
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookieConsent').style.display = 'flex';
+        }
+    });
+
+    document.getElementById('acceptCookies').addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookieConsent').style.display = 'none';
+    });
+</script>
 </body>
 </html>
